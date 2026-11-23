@@ -1,0 +1,284 @@
+<title>Oficina de Producto</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<style>
+/* Layout: iOS-style single column, large title, segmented control, inset grouped lists */
+:root{
+  --bg:#F2F2F7; --cell:#FFFFFF; --fg:#000000; --fg2:#3C3C4399; --fg3:#3C3C434D;
+  --sep:#3C3C4329; --fill:#7878801F; --blue:#007AFF;
+  --green:#34C759; --orange:#FF9500; --red:#FF3B30; --indigo:#5856D6; --teal:#30B0C7; --gray:#8E8E93;
+  --font:-apple-system,BlinkMacSystemFont,"SF Pro Text","Inter","Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  --display:-apple-system,BlinkMacSystemFont,"SF Pro Display","Inter","Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  --r:12px;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#000000; --cell:#1C1C1E; --fg:#FFFFFF; --fg2:#EBEBF599; --fg3:#EBEBF54D;
+  --sep:#54545899; --fill:#7878803D; --blue:#0A84FF;
+  --green:#30D158; --orange:#FF9F0A; --red:#FF453A; --indigo:#5E5CE6; --teal:#40C8E0; --gray:#98989D;
+  color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#000000; --cell:#1C1C1E; --fg:#FFFFFF; --fg2:#EBEBF599; --fg3:#EBEBF54D;
+  --sep:#54545899; --fill:#7878803D; --blue:#0A84FF;
+  --green:#30D158; --orange:#FF9F0A; --red:#FF453A; --indigo:#5E5CE6; --teal:#40C8E0; --gray:#98989D;
+  color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--fg);font-family:var(--font);font-size:17px;line-height:1.35;-webkit-font-smoothing:antialiased}
+.wrap{max-width:720px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:8px 48px}
+a{color:var(--blue);text-decoration:none}
+a:focus-visible,button:focus-visible{outline:2px solid var(--blue);outline-offset:2px;border-radius:8px}
+.top{display:flex;align-items:flex-end;justify-content:space-between;gap:12px;padding-top:28px}
+.eyebrow{font-size:13px;color:var(--fg2);font-weight:600;letter-spacing:.02em;text-transform:uppercase}
+h1{font-family:var(--display);font-size:34px;font-weight:700;letter-spacing:.01em;margin:2px 0 0;text-wrap:balance}
+.seg{display:grid;grid-template-columns:repeat(3,1fr);background:var(--fill);border-radius:9px;padding:2px;margin:16px 0 8px}
+.seg button{all:unset;cursor:pointer;text-align:center;font-size:13px;font-weight:600;padding:7px 4px;border-radius:7px;color:var(--fg)}
+.seg button[aria-selected="true"]{background:var(--cell);box-shadow:0 3px 8px #0000001F,0 3px 1px #0000000A}
+.hdr{font-size:13px;color:var(--fg2);text-transform:uppercase;letter-spacing:.03em;margin:28px 16px 7px}
+.foot{font-size:13px;color:var(--fg2);margin:7px 16px 0}
+.group{background:var(--cell);border-radius:var(--r);overflow:hidden}
+.cell{display:flex;align-items:center;gap:12px;padding:11px 16px;min-height:44px;position:relative;width:100%}
+.cell+.cell::before,.cell+details::before,details+.cell::before,details+details::before{content:"";position:absolute;top:0;left:16px;right:0;border-top:.5px solid var(--sep)}
+details{position:relative}
+button.cell{all:unset;display:flex;align-items:center;gap:12px;padding:11px 16px;min-height:44px;position:relative;width:100%;box-sizing:border-box;cursor:pointer}
+button.cell:active,summary.cell:active{background:var(--fill)}
+summary{list-style:none;cursor:pointer}
+summary::-webkit-details-marker{display:none}
+.grow{flex:1;min-width:0}
+.t{font-size:17px}
+.sub{font-size:15px;color:var(--fg2);margin-top:2px}
+.chev{color:var(--fg3);font-size:20px;line-height:1;transition:transform .2s}
+details[open] .chev{transform:rotate(90deg)}
+.av{width:30px;height:30px;border-radius:50%;display:grid;place-items:center;color:#fff;font-weight:700;font-size:14px;flex:none}
+.pill{font-size:12px;font-weight:600;padding:3px 9px;border-radius:999px;white-space:nowrap}
+.v-Adoptar{background:color-mix(in srgb,var(--green) 18%,transparent);color:var(--green)}
+.v-Probar{background:color-mix(in srgb,var(--blue) 18%,transparent);color:var(--blue)}
+.v-Vigilar{background:color-mix(in srgb,var(--orange) 18%,transparent);color:var(--orange)}
+.v-Descartar{background:color-mix(in srgb,var(--red) 16%,transparent);color:var(--red)}
+.summary{padding:16px;font-size:16px;line-height:1.45}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);border-top:.5px solid var(--sep)}
+.stat{padding:12px 8px;text-align:center}
+.stat b{display:block;font-family:var(--display);font-size:22px;font-variant-numeric:tabular-nums}
+.stat span{font-size:12px;color:var(--fg2)}
+.detail{padding:4px 16px 18px;display:grid;gap:14px}
+.lbl{font-size:12px;font-weight:600;color:var(--fg2);text-transform:uppercase;letter-spacing:.04em;margin-bottom:3px}
+.p{font-size:15px;line-height:1.5;max-width:65ch}
+.meta{display:flex;flex-wrap:wrap;gap:6px}
+.tag{font-size:12px;color:var(--fg2);background:var(--fill);padding:3px 8px;border-radius:6px}
+.pc{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.pc ul{margin:0;padding-left:18px;font-size:14px;line-height:1.45}
+.pc .box{background:var(--bg);border-radius:10px;padding:10px 12px;min-width:0}
+.pc .box.pro .lbl{color:var(--green)} .pc .box.con .lbl{color:var(--red)}
+.chat{display:grid;gap:8px}
+.msg{display:flex;gap:8px;align-items:flex-start}
+.msg .av{width:24px;height:24px;font-size:11px;margin-top:2px}
+.bubble{background:var(--bg);border-radius:16px;padding:8px 12px;font-size:14px;line-height:1.45;min-width:0}
+.bubble .who{font-size:12px;font-weight:600;margin-bottom:1px}
+.verdict{border-radius:10px;padding:10px 12px;font-size:14px;line-height:1.45;background:var(--bg)}
+.src{display:grid;gap:4px;font-size:14px}
+.src a{overflow-wrap:anywhere}
+.step{display:flex;gap:10px;align-items:flex-start;font-size:15px}
+.step .dot{width:22px;height:22px;border-radius:50%;background:var(--blue);color:#fff;display:grid;place-items:center;font-size:13px;flex:none;margin-top:1px}
+.chips{display:flex;gap:6px;overflow-x:auto;padding:2px 0 4px;scrollbar-width:none}
+.chips button{all:unset;cursor:pointer;font-size:13px;font-weight:500;padding:6px 12px;border-radius:999px;background:var(--cell);white-space:nowrap}
+.chips button[aria-pressed="true"]{background:var(--blue);color:#fff}
+.empty{padding:40px 24px;text-align:center;color:var(--fg2);font-size:15px;line-height:1.5}
+.empty b{display:block;color:var(--fg);font-size:17px;margin-bottom:6px}
+.back{all:unset;cursor:pointer;color:var(--blue);font-size:17px;display:inline-flex;align-items:center;gap:4px;margin-top:12px}
+.note{font-size:13px;color:var(--orange);margin:8px 16px 0}
+@media (max-width:480px){.pc{grid-template-columns:1fr}.stats{grid-template-columns:repeat(2,1fr)} h1{font-size:30px}}
+@media (prefers-reduced-motion:reduce){.chev{transition:none}}
+</style>
+
+<div class="wrap">
+  <div class="top">
+    <div>
+      <div class="eyebrow" id="eyebrow">IA aplicada a producto</div>
+      <h1 id="title">Oficina de Producto</h1>
+    </div>
+  </div>
+  <div class="seg" role="tablist" id="seg">
+    <button role="tab" id="tab-hoy" aria-selected="true" data-v="hoy">Reporte</button>
+    <button role="tab" id="tab-archivo" aria-selected="false" data-v="archivo">Archivo</button>
+    <button role="tab" id="tab-equipo" aria-selected="false" data-v="equipo">Equipo</button>
+  </div>
+  <div id="note" class="note" hidden></div>
+  <main id="view"></main>
+</div>
+
+<script>
+(function(){
+  const AG = {
+    "Lucía": {c:"var(--indigo)", rol:"Estrategia & Negocio", areas:"Estrategia de negocio, presupuestos y business cases, economía y pricing de productos con IA, qué hacen las big tech.", tono:"Pragmática y escéptica del hype. Pide ROI y evidencia."},
+    "Diego": {c:"var(--orange)", rol:"Discovery, Research & Diseño", areas:"User research con IA, iteración y discovery continuo, métricas y experimentación, prototipado con IA y DesignOps.", tono:"Early adopter, obsesionado con el usuario. Quiere probarlo todo ya."},
+    "Sara":  {c:"var(--teal)", rol:"Metodologías & Liderazgo", areas:"Metodologías y ways of working, gestión y desarrollo de POs y Product Designers, gobernanza y EU AI Act, evals.", tono:"Abogada del diablo. Pregunta por el equipo y por el riesgo."}
+  };
+  const VORD = ["Adoptar","Probar","Vigilar","Descartar"];
+  let reports = [], state = {view:"hoy", id:null, area:null};
+
+  function h(tag, attrs, ...kids){
+    const el = document.createElement(tag);
+    for (const [k,v] of Object.entries(attrs||{})){
+      if (v==null || v===false) continue;
+      if (k==="class") el.className=v; else if (k==="style") el.style.cssText=v;
+      else if (k.startsWith("on")) el.addEventListener(k.slice(2), v);
+      else el.setAttribute(k, v===true?"":v);
+    }
+    for (const kid of kids.flat()){ if (kid==null||kid===false) continue; el.append(kid.nodeType?kid:document.createTextNode(String(kid))); }
+    return el;
+  }
+  const safeUrl = u => typeof u==="string" && /^https?:\/\//i.test(u) ? u : null;
+  const host = u => { try { return new URL(u).hostname.replace(/^www\./,""); } catch(e){ return u; } };
+  const av = name => { const a = AG[name]; return h("div",{class:"av",style:"background:"+(a?a.c:"var(--gray)")}, (name||"?").slice(0,1)); };
+  const fmtDate = d => { try { return new Date(d+"T12:00:00").toLocaleDateString("es-ES",{weekday:"long",day:"numeric",month:"long"}); } catch(e){ return d; } };
+  const arr = x => Array.isArray(x)?x:[];
+
+  function setView(v){
+    state.view=v;
+    document.querySelectorAll("#seg button").forEach(b=>b.setAttribute("aria-selected", String(b.dataset.v===v)));
+    try{ localStorage.setItem("opm-view", v); }catch(e){}
+    render();
+  }
+  document.querySelectorAll("#seg button").forEach(b=>b.addEventListener("click",()=>setView(b.dataset.v)));
+
+  function linkOrText(text, url){ const u=safeUrl(url); return u? h("a",{href:u,target:"_blank",rel:"noopener"}, text) : h("span",{}, text); }
+
+  function ideaCell(idea, opts){
+    const v = VORD.includes(idea.veredicto)?idea.veredicto:"Vigilar";
+    const d = h("details",{id:"idea-"+(idea.id||"")});
+    d.append(h("summary",{class:"cell"},
+      av(idea.autor),
+      h("div",{class:"grow"},
+        h("div",{class:"t"}, idea.titulo||"Idea"),
+        h("div",{class:"sub"}, [idea.area, opts&&opts.fecha?fmtDate(opts.fecha):null].filter(Boolean).join(" · "))
+      ),
+      h("span",{class:"pill v-"+v}, v),
+      h("span",{class:"chev","aria-hidden":"true"},"›")
+    ));
+    const det = h("div",{class:"detail"});
+    det.append(h("div",{class:"meta"},
+      h("span",{class:"tag"},"Propone "+(idea.autor||"—")),
+      idea.impacto?h("span",{class:"tag"},"Impacto "+idea.impacto):null,
+      idea.esfuerzo?h("span",{class:"tag"},"Esfuerzo "+idea.esfuerzo):null));
+    if (idea.problema) det.append(h("div",{}, h("div",{class:"lbl"},"Problema"), h("div",{class:"p"}, idea.problema)));
+    if (idea.propuesta) det.append(h("div",{}, h("div",{class:"lbl"},"Propuesta"), h("div",{class:"p"}, idea.propuesta)));
+    if (idea.aplicacion_equipo) det.append(h("div",{}, h("div",{class:"lbl"},"En tu equipo"), h("div",{class:"p"}, idea.aplicacion_equipo)));
+    if (arr(idea.pros).length || arr(idea.contras).length) det.append(h("div",{class:"pc"},
+      h("div",{class:"box pro"}, h("div",{class:"lbl"},"Pros"), h("ul",{}, arr(idea.pros).map(x=>h("li",{},x)))),
+      h("div",{class:"box con"}, h("div",{class:"lbl"},"Contras"), h("ul",{}, arr(idea.contras).map(x=>h("li",{},x))))));
+    if (arr(idea.debate).length) det.append(h("div",{}, h("div",{class:"lbl"},"Debate"),
+      h("div",{class:"chat"}, arr(idea.debate).map(m=>h("div",{class:"msg"}, av(m.agente),
+        h("div",{class:"bubble"}, h("div",{class:"who",style:"color:"+((AG[m.agente]||{}).c||"var(--gray)")}, (m.agente||"")+(m.postura?" · "+m.postura:"")), m.argumento||""))))));
+    det.append(h("div",{}, h("div",{class:"lbl"},"Veredicto"), h("div",{class:"verdict"}, h("span",{class:"pill v-"+v,style:"margin-right:8px"}, v), idea.veredicto_razon||"")));
+    if (idea.primer_paso) det.append(h("div",{}, h("div",{class:"lbl"},"Primer paso esta semana"), h("div",{class:"step"}, h("span",{class:"dot"},"1"), h("span",{}, idea.primer_paso))));
+    const fu = arr(idea.fuentes).map(safeUrl).filter(Boolean);
+    if (fu.length) det.append(h("div",{}, h("div",{class:"lbl"},"Fuentes"), h("div",{class:"src"}, fu.map(u=>h("a",{href:u,target:"_blank",rel:"noopener"}, host(u))))));
+    d.append(det);
+    return d;
+  }
+
+  function reportView(r){
+    const out = [];
+    const ideas = arr(r.ideas);
+    const counts = VORD.map(v=>ideas.filter(i=>i.veredicto===v).length);
+    out.push(h("div",{class:"hdr",id:"resumen"}, fmtDate(r.fecha)));
+    out.push(h("div",{class:"group"},
+      h("div",{class:"summary"}, h("div",{style:"font-weight:600;margin-bottom:6px"}, r.titulo||"Reporte del día"), r.resumen||""),
+      h("div",{class:"stats"}, VORD.map((v,i)=>h("div",{class:"stat"}, h("b",{style:"color:var(--"+({Adoptar:"green",Probar:"blue",Vigilar:"orange",Descartar:"red"})[v]+")"}, counts[i]), h("span",{}, v))))));
+    out.push(h("div",{class:"hdr",id:"ideas"},"Ideas debatidas"));
+    out.push(h("div",{class:"group"}, ideas.map(i=>ideaCell(i))));
+    out.push(h("div",{class:"foot"},"Toca una idea para ver el debate, pros, contras y fuentes."));
+    const dz = r.desacuerdo;
+    if (dz && dz.tema){
+      out.push(h("div",{class:"hdr",id:"desacuerdo"},"Desacuerdo del día"));
+      out.push(h("div",{class:"group"}, h("div",{class:"detail",style:"padding-top:14px"},
+        h("div",{class:"t",style:"font-weight:600"}, dz.tema),
+        h("div",{class:"chat"}, arr(dz.posturas).map(m=>h("div",{class:"msg"}, av(m.agente), h("div",{class:"bubble"}, h("div",{class:"who",style:"color:"+((AG[m.agente]||{}).c||"var(--gray)")}, m.agente||""), m.texto||"")))))));
+    }
+    if (r.pregunta){
+      out.push(h("div",{class:"hdr",id:"pregunta"},"Una pregunta para ti"));
+      out.push(h("div",{class:"group"}, h("div",{class:"summary"}, r.pregunta)));
+    }
+    const ref = arr(r.referentes);
+    if (ref.length){
+      out.push(h("div",{class:"hdr",id:"referentes"},"Qué publican los referentes"));
+      out.push(h("div",{class:"group"}, ref.map(x=>h("div",{class:"cell",style:"align-items:flex-start"},
+        h("div",{class:"grow"}, h("div",{class:"t"}, linkOrText(x.titulo||x.autor, x.url)),
+          h("div",{class:"sub"}, [x.autor,x.fecha].filter(Boolean).join(" · ")),
+          x.idea_clave?h("div",{class:"p",style:"margin-top:4px"}, x.idea_clave):null)))));
+    }
+    const bt = arr(r.big_tech);
+    if (bt.length){
+      out.push(h("div",{class:"hdr",id:"bigtech"},"Qué hacen las big tech"));
+      out.push(h("div",{class:"group"}, bt.map(x=>h("div",{class:"cell",style:"align-items:flex-start"},
+        h("div",{class:"grow"}, h("div",{class:"t",style:"font-weight:600"}, linkOrText(x.empresa, x.url)),
+          h("div",{class:"p",style:"margin-top:2px"}, x.practica||""))))));
+    }
+    return out;
+  }
+
+  function render(){
+    const view = document.getElementById("view");
+    view.replaceChildren();
+    if (state.view==="equipo"){ view.append(...equipoView()); return; }
+    if (!reports.length){
+      view.append(h("div",{class:"group",style:"margin-top:20px"}, h("div",{class:"empty",id:"empty"},
+        h("b",{},"Aún no hay reportes"),
+        "Lucía, Diego y Sara publican aquí un reporte cada día laborable a las 18:00 (hora de Madrid). El primero está en preparación.")));
+      return;
+    }
+    if (state.view==="hoy"){
+      const r = reports.find(x=>x.id===state.id) || reports[0];
+      if (r!==reports[0]) view.append(h("button",{class:"back",onclick:()=>{state.id=null;render();}},"‹ Último reporte"));
+      view.append(...reportView(r));
+    } else {
+      view.append(...archivoView());
+    }
+  }
+
+  function archivoView(){
+    const out=[];
+    const all = reports.flatMap(r=>arr(r.ideas).map(i=>({i,fecha:r.fecha})));
+    const areas = [...new Set(all.map(x=>x.i.area).filter(Boolean))].sort();
+    out.push(h("div",{class:"hdr"},"Reportes"));
+    out.push(h("div",{class:"group",id:"lista-reportes"}, reports.map(r=>h("button",{class:"cell",onclick:()=>{state.id=r.id;setView("hoy");window.scrollTo(0,0);}},
+      h("div",{class:"grow"}, h("div",{class:"t"}, fmtDate(r.fecha)), h("div",{class:"sub"}, r.titulo||"")),
+      h("span",{class:"sub",style:"margin:0"}, arr(r.ideas).length+" ideas"),
+      h("span",{class:"chev","aria-hidden":"true"},"›")))));
+    out.push(h("div",{class:"hdr"},"Todas las ideas por área"));
+    out.push(h("div",{class:"chips",id:"chips-area"},
+      h("button",{"aria-pressed":String(!state.area),onclick:()=>{state.area=null;render();}},"Todas"),
+      areas.map(a=>h("button",{"aria-pressed":String(state.area===a),onclick:()=>{state.area=a;render();}},a))));
+    const list = all.filter(x=>!state.area||x.i.area===state.area);
+    out.push(h("div",{class:"group",style:"margin-top:8px",id:"ideas-area"}, list.map(x=>ideaCell(x.i,{fecha:x.fecha}))));
+    return out;
+  }
+
+  function equipoView(){
+    const out=[h("div",{class:"hdr"},"Los expertos")];
+    out.push(h("div",{class:"group",id:"expertos"}, Object.entries(AG).map(([n,a])=>h("div",{class:"cell",style:"align-items:flex-start"},
+      av(n), h("div",{class:"grow"}, h("div",{class:"t",style:"font-weight:600"}, n+" · "+a.rol), h("div",{class:"p",style:"margin-top:2px"}, a.areas), h("div",{class:"sub"}, a.tono))))));
+    out.push(h("div",{class:"hdr"},"Cómo trabajan"));
+    out.push(h("div",{class:"group",id:"metodo"}, [
+      ["Investigan","Cada uno busca lo último de referentes del sector y prácticas de grandes tecnológicas en sus áreas."],
+      ["Proponen","Cada experto trae 2 ideas concretas para tu equipo, con fuentes."],
+      ["Debaten","Cada idea recibe críticas de los otros dos. No se dan la razón: siempre hay un contra."],
+      ["Deciden","La oficina cierra cada idea con un veredicto: Adoptar, Probar, Vigilar o Descartar."]
+    ].map(([t,s])=>h("div",{class:"cell",style:"align-items:flex-start"}, h("div",{class:"grow"}, h("div",{class:"t"},t), h("div",{class:"sub"},s))))));
+    out.push(h("div",{class:"foot"},"Nuevo reporte de lunes a viernes, 18:00 (Madrid)."));
+    return out;
+  }
+
+  try{ const v=localStorage.getItem("opm-view"); if (v && ["hoy","archivo","equipo"].includes(v)) { state.view=v; document.querySelectorAll("#seg button").forEach(b=>b.setAttribute("aria-selected", String(b.dataset.v===v))); } }catch(e){}
+  render();
+
+  (async()=>{
+    const note = document.getElementById("note");
+    const db = window.claude && await window.claude.use("db");
+    if (!db){ note.textContent="No se pueden cargar los reportes en esta vista. Ábrelo desde claude.ai con tu cuenta."; note.hidden=false; return; }
+    const timer = setTimeout(()=>{ note.textContent="Los reportes tardan en cargar. Puede que lo que ves no esté actualizado."; note.hidden=false; },10000);
+    db.collection("reports").orderBy("fecha","desc").limit(200).onSnapshot(snap=>{
+      if (!snap.metadata.fromCache){ clearTimeout(timer); note.hidden=true; }
+      reports = snap.docs.map(d=>Object.assign({id:d.id}, d.data())).filter(r=>r.fecha);
+      render();
+    }, err=>{ clearTimeout(timer); note.textContent="No se pudieron cargar los reportes ("+err.code+")."; note.hidden=false; });
+  })();
+})();
+</script>

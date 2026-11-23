@@ -1,0 +1,223 @@
+{
+  "fecha": "2026-11-23",
+  "titulo": "Construir ya es barato: el cuello de botella es decidir",
+  "resumen": "Los tres expertos coinciden en el diagnóstico: con la IA, prototipar y construir cuesta poco, así que lo escaso es el criterio para decidir qué aprender, qué escalar y cómo evaluar a las personas. Recomendación principal: separar el portfolio en 'Aprender' y 'Ganar' con una unidad de valor y un criterio de kill (L2), y reforzar la career ladder para que premie el juicio y no el uso de IA (S1). La idea más discutida fue convertir el prototipo con IA en una puerta obligatoria (D2): Lucía y Sara la rechazan como regla universal.",
+  "ideas": [
+    {
+      "id": "L2",
+      "titulo": "Portfolio de IA con dos bolsas, 'Aprender' y 'Ganar', y una unidad de valor como puerta",
+      "area": "Estrategia de negocio",
+      "autor": "Lucía",
+      "problema": "Prototipar con IA cuesta tan poco que el portfolio se llena de pilotos que nadie cierra ni escala, y se llega a producción sin una métrica de valor que justifique el coste.",
+      "propuesta": "Dividir el portfolio en dos bolsas. 'Aprender' es un presupuesto pequeño y acotado en el tiempo (2-4 semanas por apuesta), con criterio de kill definido al principio. 'Ganar' exige un business case de una página. Para pasar de una a otra hay que definir la 'unidad de valor', una tarea completada que el cliente reconoce como valiosa (como la resolución de Intercom Fin o la acción de Agentforce). Esa unidad funciona como North Star y como candidata a unidad de pricing.",
+      "aplicacion_equipo": "1) Reservar alrededor del 15% de la capacidad trimestral para 'Aprender'. 2) Cada PO presenta su apuesta con hipótesis, unidad de valor y criterio de kill. 3) Los designers prototipan con IA y validan con usuarios que la unidad de valor se entiende. 4) Revisión trimestral para matar, iterar o pasar a 'Ganar'.",
+      "impacto": "alto",
+      "esfuerzo": "bajo",
+      "primer_paso": "Listar todos los pilotos de IA abiertos y pedir a cada PO, en una línea, su unidad de valor y su criterio de kill. Proponer el cierre de los que no tengan ninguna de las dos.",
+      "fuentes": [
+        "https://www.scrum.org/resources/blog/cheap-half-product-was-always-build",
+        "https://intercom.com/blog/from-resolutions-to-outcomes-evolving-how-fin-delivers-value",
+        "https://www.salesforce.com/blog/flex-credits/",
+        "https://www.news.aakashg.com/p/ai-product-operating-model"
+      ],
+      "debate": [
+        {"agente": "Diego", "postura": "A favor", "argumento": "Es la idea que más acelera el aprendizaje: apuestas cortas con un criterio de kill escrito antes es discovery disciplinado. El criterio de kill debería incluir evidencia de usuarios reales, no solo métricas de uso. Ojo: en B2B o en features de hábito, 2-4 semanas no bastan para ver la retención."},
+        {"agente": "Sara", "postura": "Con matices", "argumento": "Usar la misma unidad como North Star y como unidad de cobro invita a inflarla (ley de Goodhart), por ejemplo contando como 'resuelto' lo que el usuario abandonó. Además, el 15% sale de personas concretas: si no se descuenta del roadmap de 'Ganar', se convierte en trabajo extra."}
+      ],
+      "pros": [
+        "Protege un espacio explícito para experimentar y deja claro cuándo una apuesta se gradúa o muere.",
+        "Da a negocio y producto un lenguaje común: la unidad de valor."
+      ],
+      "contras": [
+        "Riesgo de manipular la métrica si la misma unidad sirve para medir el éxito y para cobrar.",
+        "Las ventanas de 2-4 semanas pueden matar apuestas buenas en B2B o en features de hábito."
+      ],
+      "veredicto": "Adoptar",
+      "veredicto_razon": "Hay consenso en el fondo. Se adopta con dos ajustes del debate: una métrica de contrapeso medida por research (satisfacción real con la tarea) y el 15% descontado de forma explícita del roadmap."
+    },
+    {
+      "id": "S1",
+      "titulo": "Career ladder 'Builder con criterio': evaluar el juicio, no el consumo de IA",
+      "area": "Gestión de POs",
+      "autor": "Sara",
+      "problema": "Meta y Google empiezan a medir la adopción de IA en las evaluaciones con métricas de uso que premian el volumen y no el criterio. Usar IA para evaluar a personas es alto riesgo en el Anexo III del AI Act, aplazado al 2-dic-2027 según el acuerdo del Omnibus. Mientras tanto, POs y designers no saben qué se espera de ellos.",
+      "propuesta": "Añadir a las ladders de PO y Product Designer la competencia 'Construir con IA con criterio', con 3 niveles basados en evidencias: decisiones documentadas con su razonamiento, prototipos validados con usuarios y evals definidos para funcionalidades con IA. Regla explícita: no se usan métricas de uso de IA ni herramientas de IA para puntuar a personas. Se incluye una vía 'builder' para juniors, inspirada en el APB de LinkedIn.",
+      "aplicacion_equipo": "1) Redactar los descriptores con 2 POs y 2 designers voluntarios. 2) En el siguiente ciclo de 1:1, cada persona aporta 1-2 evidencias de su 'portfolio de criterio'. 3) Usarlo de forma formativa durante un trimestre. 4) Revisar con RR. HH. y legal la cláusula de 'no scoring por IA'.",
+      "impacto": "alto",
+      "esfuerzo": "medio",
+      "primer_paso": "Una sesión de 45 minutos con el equipo: '¿Cómo se ve un trabajo excelente con IA en tu rol?'. Recoger ejemplos reales y anotar qué métricas NO queremos que nos midan.",
+      "fuentes": [
+        "https://www.productboard.com/blog/executive-insights-from-product-confidential-sf/",
+        "https://elezea.com/2026/08/how-ai-is-changing-product-management/",
+        "https://careers.linkedin.com/pathways-programs/entry-level/apb",
+        "https://hrexecutive.com/google-meta-amazon-the-companies-making-ai-use-a-job-requirement/",
+        "https://cms.law/en/gbr/publication/The-EU-s-Digital-Omnibus-on-AI-What-the-Provisional-Agreement-Really-Changes"
+      ],
+      "debate": [
+        {"agente": "Lucía", "postura": "A favor", "argumento": "Es la idea más sólida en riesgo: diseñarla ahora sin scoring algorítmico evita rehacerla en 2027. Pero las evidencias propuestas premian actividad. Debería contar igual una decisión de matar una iniciativa que ahorra presupuesto o un resultado de negocio atribuible."},
+        {"agente": "Diego", "postura": "Con matices", "argumento": "'Prototipos validados' puede acabar en contar prototipos. Hay que definir 'validado' como contrastado con usuarios reales, con un supuesto confirmado o invalidado. Además, un trimestre formativo es lento para algo que cambia cada mes."}
+      ],
+      "pros": [
+        "Premia el criterio y el aprendizaje con usuarios, no el teatro de usar IA.",
+        "Reduce la exposición legal antes de que lleguen las obligaciones de alto riesgo."
+      ],
+      "contras": [
+        "Sin definiciones operativas de 'validado' y 'decisión razonada', puede ser subjetiva.",
+        "Le falta una evidencia de impacto económico: puede premiar a quien más construye y no a quien mejor decide."
+      ],
+      "veredicto": "Adoptar",
+      "veredicto_razon": "Nadie la rechaza y protege al equipo. Se adopta añadiendo una evidencia de impacto (incluida la decisión de matar algo) y una definición de 'validado con usuarios'."
+    },
+    {
+      "id": "D1",
+      "titulo": "Entrevistador IA con rúbrica y snapshots, más una 'doble pasada' humana",
+      "area": "User research",
+      "autor": "Diego",
+      "problema": "Los POs entrevistan poco y de forma irregular, la síntesis se queda en notas sueltas que no llegan al Opportunity Solution Tree y hay tentación de usar usuarios sintéticos como evidencia.",
+      "propuesta": "Montar un estudio continuo por squad con entrevistas moderadas por IA (Maze AI Moderator, Listen Labs), guiadas por una rúbrica fija al estilo Anthropic Interviewer. Cada entrevista genera un snapshot estándar, como propone Teresa Torres, que alimenta el OST. Regla de calidad: el PO sintetiza él mismo 2 de cada 10 entrevistas y compara su síntesis con la de la IA. Los usuarios sintéticos solo sirven para ensayar el guion.",
+      "aplicacion_equipo": "1) Elegir un squad piloto y una pregunta de discovery. 2) Designer y PO redactan la rúbrica y la plantilla de snapshot. 3) Hacer unas 15 entrevistas con IA en 2 semanas. 4) Doble pasada humana en 2 de ellas. 5) Comparar en la review mensual con las entrevistas manuales.",
+      "impacto": "alto",
+      "esfuerzo": "medio",
+      "primer_paso": "Que un PO escriba la rúbrica y la plantilla de snapshot de su pregunta abierta principal y las pruebe con 3 transcripciones antiguas en Claude, comparando el resultado con lo que él concluyó.",
+      "fuentes": [
+        "https://www.producttalk.org/generating-opportunity-solution-trees-with-ai-how-vistaly-rebuilt-its-product-around-interview-synthesis-evals-and-repair-loops/",
+        "https://www.anthropic.com/research/anthropic-interviewer",
+        "https://www.nngroup.com/articles/synthetic-users-vs-human-respondents/",
+        "https://maze.co/features/ai-moderator/",
+        "https://www.ropesgray.com/en/insights/viewpoints/2026/08/102nfqm/you-talkin-to-me-operationalising-the-eu-ai-acts-transparency-obligations"
+      ],
+      "debate": [
+        {"agente": "Lucía", "postura": "Con matices", "argumento": "La doble pasada es un buen control de calidad, pero falta el caso económico: es una licencia más y nadie ha medido si más entrevistas producen mejores decisiones. Pediría un piloto de un trimestre con una métrica de decisión, por ejemplo cuántas oportunidades se priorizan o descartan gracias a esas entrevistas."},
+        {"agente": "Sara", "postura": "Con matices", "argumento": "Revisar 2 de cada 10 es simbólico, y el PO pierde la empatía de estar en la entrevista. Además, la obligación de informar de que se habla con una IA (art. 50 del AI Act) ya se aplica desde agosto de 2026. Si se graba voz o vídeo, entra también el RGPD: hace falta base legal y un DPA con el proveedor."}
+      ],
+      "pros": [
+        "Multiplica la cobertura de research con una rúbrica consistente.",
+        "El snapshot conecta cada entrevista con el OST y con las decisiones."
+      ],
+      "contras": [
+        "Riesgo legal si no se avisa al participante de que le entrevista una IA (art. 50) o si no se revisa la privacidad del proveedor.",
+        "Más volumen de research no garantiza mejores decisiones, y la licencia es un coste más."
+      ],
+      "veredicto": "Probar",
+      "veredicto_razon": "Merece un piloto en un squad, con tres condiciones del debate: aviso de IA en el consentimiento y revisión de privacidad, una métrica de decisiones cambiadas y al menos una entrevista en directo al mes por PO."
+    },
+    {
+      "id": "L1",
+      "titulo": "Ficha de unit economics por feature de IA, con test de estrés 10x",
+      "area": "Presupuestos",
+      "autor": "Lucía",
+      "problema": "Cada uso de una feature de IA tiene un coste variable, y los usuarios más intensivos pueden costar 10 veces más con el mismo plan. Una feature de éxito puede ir comiéndose el margen sin que nadie lo vea.",
+      "propuesta": "Cada feature de IA tiene una ficha de una página con el coste por tarea completada (inferencia, infraestructura y revisión humana), el coste del 10% de usuarios más intensivos, el margen bruto y qué pasa si el uso se multiplica por 10. Además fija un margen mínimo y deja definidas de antemano las palancas: modelos más baratos, caché, límites por plan o un add-on.",
+      "aplicacion_equipo": "1) Definir la plantilla y el umbral de margen con Finanzas. 2) Cada PO la rellena con la facturación real del proveedor y la telemetría. 3) Los designers señalan los flujos que generan llamadas redundantes. 4) Revisión mensual en el comité de portfolio.",
+      "impacto": "alto",
+      "esfuerzo": "medio",
+      "primer_paso": "Pedir la factura de inferencia del último mes y que un PO calcule el coste por tarea y el del 10% de usuarios más intensivos para la feature de IA más usada.",
+      "fuentes": [
+        "https://www.bvp.com/atlas/the-ai-pricing-and-monetization-playbook",
+        "https://www.chargebee.com/blog/the-new-rules-of-pricing-ai-products/",
+        "https://www.theregister.com/2026/02/06/atlassian_q2_2026/"
+      ],
+      "debate": [
+        {"agente": "Diego", "postura": "Con matices", "argumento": "Medir el coste por tarea completada obliga a definir qué es 'completada' para el usuario, y eso está muy bien. Pero si se pide la ficha antes de tener uso real, el PO inventa supuestos y se frena el discovery. Debe exigirse al pasar de 'Aprender' a 'Ganar', no al prototipar."},
+        {"agente": "Sara", "postura": "Con matices", "argumento": "Las palancas de ahorro, como cambiar a modelos más baratos o usar caché, pueden degradar la calidad sin que nadie lo vea. Falta un suelo de calidad: ningún cambio de modelo sin pasar los evals. Además, es una ficha más para POs que ya van saturados."}
+      ],
+      "pros": [
+        "Evita escalar features que pierden dinero con los usuarios más intensivos.",
+        "Une en una sola unidad la métrica de usuario y la económica."
+      ],
+      "contras": [
+        "Pedida demasiado pronto, se convierte en un trámite que frena el discovery.",
+        "Sin un suelo de calidad, optimiza el margen a costa de la experiencia."
+      ],
+      "veredicto": "Probar",
+      "veredicto_razon": "Probarla con la feature de IA más usada, y solo como requisito para pasar de 'Aprender' a 'Ganar' (encaja con L2), añadiendo un suelo de calidad basado en evals."
+    },
+    {
+      "id": "S2",
+      "titulo": "Presupuesto de carga cognitiva: stack mínimo de IA y límite de agentes supervisados",
+      "area": "Metodologías",
+      "autor": "Sara",
+      "problema": "Cada persona acumula herramientas y agentes por su cuenta. El estudio de BCG y HBR sobre el 'brain fry' asocia supervisar muchas herramientas o agentes con más errores y más rotación, y nadie controla qué datos de clientes entran en cada herramienta.",
+      "propuesta": "Definir un stack aprobado de máximo 3 herramientas por rol, revisado por privacidad, y un límite de WIP para los flujos agénticos que una persona supervisa a la vez. Añadir una pregunta fija de carga cognitiva en los 1:1 y un registro ligero de decisiones por squad. La IA debe servir primero para quitar trabajo rutinario.",
+      "aplicacion_equipo": "1) Inventario de herramientas y datos que usa cada persona. 2) Elegir el stack con product ops y legal. 3) Acordar el límite de WIP por squad. 4) En los 1:1 quincenales, preguntar cuánto tiempo pasa cada uno revisando lo que produce la IA y cuánto le cansa. 5) Revisar a las 6 semanas.",
+      "impacto": "medio",
+      "esfuerzo": "bajo",
+      "primer_paso": "Una encuesta de 5 minutos: herramientas de IA en uso, tipo de datos que se meten en ellas y fatiga del 1 al 5.",
+      "fuentes": [
+        "https://www.axios.com/2026/03/06/ai-chatgpt-claude-jobs-brain-fry",
+        "https://mindtheproduct.com/how-is-ai-restructuring-product-teams/",
+        "https://www.pinsentmasons.com/Out-Law/News/Rules-high-risk-AI-delayed-under-EU-omnibus-deal"
+      ],
+      "debate": [
+        {"agente": "Diego", "postura": "En contra", "argumento": "Un máximo de 3 herramientas congela el stack en un mercado que cambia cada trimestre y empuja a la shadow AI, que es peor para la privacidad. La fatiga viene más del WIP y del cambio de contexto que del número de herramientas."},
+        {"agente": "Lucía", "postura": "Con matices", "argumento": "El número 3 es arbitrario: lo que hay que limitar es el gasto en herramientas sin uso ni retorno demostrado. Aun así, consolidar licencias duplicadas da un ahorro inmediato. Falta una métrica de resultado: la fatiga preguntada en un 1:1 no se puede auditar."}
+      ],
+      "pros": [
+        "El límite de WIP y la pregunta de fatiga cuestan poco y protegen al equipo.",
+        "Consolida licencias y reduce la superficie de riesgo de privacidad."
+      ],
+      "contras": [
+        "Un tope fijo de herramientas frena la experimentación y fomenta la shadow AI.",
+        "No tiene una métrica de resultado auditable."
+      ],
+      "veredicto": "Probar",
+      "veredicto_razon": "Probar la versión revisada: stack base aprobado, un sandbox de 30 días con datos no sensibles para herramientas nuevas (propuesta de Diego), límite de WIP de agentes y la encuesta de fatiga como línea base. Sin tope fijo de herramientas."
+    },
+    {
+      "id": "D2",
+      "titulo": "'Prototipo primero': ningún refinamiento sin un prototipo funcional hecho con el design system",
+      "area": "Prototipado y DesignOps",
+      "autor": "Diego",
+      "problema": "Los PRD y los mockups estáticos se discuten mucho y se validan poco, y cada PO prototipa con herramientas distintas, con resultados que no se parecen al producto real.",
+      "propuesta": "DesignOps monta un Make kit o una skill compartida con el design system para generar prototipos fieles en Figma Make, v0 o Claude. Toda iniciativa llega a refinamiento con un prototipo y la lista de supuestos que prueba, y se testea con 5 usuarios en 48 h. Las conversaciones con el agente quedan visibles para el equipo.",
+      "aplicacion_equipo": "1) Un designer senior arma el kit con 10-15 componentes clave. 2) Taller de 90 minutos para POs. 3) Durante 1 sprint, aplicar la regla en 2 squads. 4) Medir el tiempo de la idea al test y cuántos supuestos se invalidan antes de desarrollar.",
+      "impacto": "alto",
+      "esfuerzo": "medio",
+      "primer_paso": "Que un designer y un PO conviertan la próxima historia del backlog en un prototipo de Figma Make con la librería actual y lo presenten en la review junto a sus supuestos.",
+      "fuentes": [
+        "https://www.figma.com/blog/prototypes-are-the-new-prds/",
+        "https://diginomica.com/config-2026-ai-blurs-lines-figma-code-motion-agent-workflows-design-canvas",
+        "https://www.lennysnewsletter.com/p/a-guide-to-ai-prototyping-for-product",
+        "https://www.globalplayer.com/podcasts/episodes/7DrsgCd"
+      ],
+      "debate": [
+        {"agente": "Lucía", "postura": "En contra", "argumento": "Prototipar pronto está bien, pero hacerlo obligatorio trata igual una migración regulatoria que una apuesta incierta. Reclutar 5 usuarios en 48 h para cada iniciativa cuesta dinero y horas, y la regla no tiene criterio de kill. El cuello de botella es validar y decidir, no construir."},
+        {"agente": "Sara", "postura": "En contra", "argumento": "Un prototipo obligatorio ancla al equipo en una solución antes de entender el problema. Además cambia los roles sin pasar por la career ladder: el PO se convierte en builder y el designer en mantenedor del kit. También agota el panel de usuarios, y los logs del agente visibles pueden vivirse como vigilancia."}
+      ],
+      "pros": [
+        "En iniciativas con riesgo de usabilidad o de valor, acorta mucho el ciclo hasta la primera evidencia.",
+        "Un kit con el design system hace que los prototipos se parezcan al producto real."
+      ],
+      "contras": [
+        "Como regla universal es un impuesto de proceso y empuja a enamorarse de la solución.",
+        "Aumenta la carga cognitiva y cambia los roles sin formación ni cambios en la career ladder."
+      ],
+      "veredicto": "Descartar",
+      "veredicto_razon": "Como regla universal recibe dos 'En contra'. Lo que sí sobrevive es el Make kit con el design system y el prototipo por defecto solo cuando el riesgo principal sea de usabilidad o de valor, dentro de la bolsa 'Aprender' de L2, con la norma explícita de que los logs del agente nunca se usan para evaluar a nadie."
+    }
+  ],
+  "desacuerdo": {
+    "tema": "¿Más reglas o más libertad para experimentar con IA? Cada uno quiere limitar lo que el otro quiere liberar.",
+    "posturas": [
+      {"agente": "Diego", "texto": "El tope de 3 herramientas confunde gobernanza con restricción. Propongo un stack base y un sandbox de 30 días con datos no sensibles: lo que demuestre valor entra y lo que no, sale. Así se ataca la fatiga sin cortar la experimentación."},
+      {"agente": "Lucía", "texto": "Prototipar ya es barato: lo que no escala es validar y decidir. Un prototipo obligatorio sin kill ni segmentación multiplica el gasto en reclutamiento y diseño. Que se exija solo cuando la incertidumbre principal sea de valor o de usabilidad, y dentro de la bolsa 'Aprender'."},
+      {"agente": "Sara", "texto": "D2 es la idea que más afecta a las personas y la que más se presenta como 'solo proceso'. Cambia de hecho los roles sin pasar por la career ladder, la formación ni la medición de la carga. La aceptaría como opción por defecto en iniciativas de riesgo de usabilidad, con una política clara sobre los logs del agente."}
+    ]
+  },
+  "pregunta": "¿Cuál es hoy la 'unidad de valor' de vuestra feature de IA más usada? ¿La definirían igual tus POs y tus designers si se lo preguntaras por separado?",
+  "referentes": [
+    {"agente": "Lucía", "autor": "Elena Verna (en Lenny's Newsletter)", "titulo": "El fin del feature discovery tal como lo conocemos", "url": "https://www.lennysnewsletter.com/cp/223665135", "fecha": "2026-11-05", "idea_clave": "La IA puede acabar con el problema de adopción llevando la funcionalidad al usuario en vez de esperar a que la descubra, y eso cambia cómo medimos la adopción y el ROI de cada feature."},
+    {"agente": "Diego", "autor": "Teresa Torres (resumen de Enterpret)", "titulo": "Continuous Product Discovery: 5 Lessons from Teresa Torres", "url": "https://www.enterpret.com/blog/continuous-product-discovery-teresa-torres", "fecha": "2026-11-03", "idea_clave": "Con IA, probar supuestos sigue siendo la base del discovery: se trata de ir reduciendo el riesgo poco a poco, no de pasar un único test de aprobado o suspenso."},
+    {"agente": "Sara", "autor": "Rian van der Merwe", "titulo": "How AI is changing product management", "url": "https://elezea.com/2026/08/how-ai-is-changing-product-management/", "fecha": "Agosto 2026", "idea_clave": "La IA elimina buena parte del trabajo 'performativo' del PM y deja la habilidad más difícil: el juicio. Hay que repensar cómo evaluamos y hacemos crecer a los PMs."},
+    {"agente": "Diego", "autor": "Nielsen Norman Group", "titulo": "Synthetic Users vs. Human Respondents", "url": "https://www.nngroup.com/articles/synthetic-users-vs-human-respondents/", "fecha": "2026", "idea_clave": "Comparando 120 respondentes sintéticos con 604 profesionales reales, las respuestas sintéticas salen superficiales y demasiado positivas."},
+    {"agente": "Sara", "autor": "BCG / Harvard Business Review (vía Axios)", "titulo": "AI overuse could spark \"brain fry\"", "url": "https://www.axios.com/2026/03/06/ai-chatgpt-claude-jobs-brain-fry", "fecha": "2026-03-06", "idea_clave": "El 14% de quienes usan IA declara fatiga por supervisarla, con más riesgo en quien usa muchas herramientas o supervisa varios agentes."},
+    {"agente": "Lucía", "autor": "Aakash Gupta y Rohan Varma", "titulo": "The AI Product Operating Model", "url": "https://www.news.aakashg.com/p/ai-product-operating-model", "fecha": "2026-06-17", "idea_clave": "Un modelo operativo nativo en IA con cuatro capas: personas, proceso, herramientas y modelo económico."}
+  ],
+  "big_tech": [
+    {"agente": "Lucía", "empresa": "Intercom (Fin)", "practica": "Cobra 0,99 $ por resultado y está pasando de medir 'resoluciones' a medir 'outcomes'. Según su blog, la tasa media de resolución es del 76%.", "url": "https://intercom.com/blog/from-resolutions-to-outcomes-evolving-how-fin-delivers-value"},
+    {"agente": "Lucía", "empresa": "Salesforce (Agentforce)", "practica": "Flex Credits: unos 0,10 $ por acción ejecutada y nada si no hay acción. Alternativa: 2 $ por conversación.", "url": "https://www.salesforce.com/blog/flex-credits/"},
+    {"agente": "Sara", "empresa": "LinkedIn", "practica": "Sustituye su programa de Associate Product Manager por Associate Product Builder, que mezcla PM, diseño e ingeniería dentro del modelo 'Full Stack Builder'.", "url": "https://careers.linkedin.com/pathways-programs/entry-level/apb"},
+    {"agente": "Diego", "empresa": "Anthropic", "practica": "Anthropic Interviewer: entrevistas a escala con Claude y una rúbrica fija de preguntas de investigación. El análisis lo hacen investigadores humanos.", "url": "https://www.anthropic.com/research/anthropic-interviewer"},
+    {"agente": "Diego", "empresa": "Figma", "practica": "En Config 2026 llevó código y flujos de agentes al canvas, con skills de equipo y Make kits conectados al design system.", "url": "https://diginomica.com/config-2026-ai-blurs-lines-figma-code-motion-agent-workflows-design-canvas"}
+  ]
+}
